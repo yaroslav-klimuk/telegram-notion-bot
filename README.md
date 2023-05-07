@@ -14,7 +14,7 @@ Example:
 <img width="1134" alt="Screenshot 2023-05-07 at 23 11 18" src="https://user-images.githubusercontent.com/70700647/236702742-4f479b20-dddf-4c7e-a010-283ae618b595.png">
 
 The bot only supports two specific users. If desired, you can easily add support for more users. <br>
-
+Each user must have their own database. In this example, the databases of both users are in the same account and notion integration. You can update the project for sync databases from different accounts. <br>
 To run the bot, you need to set up integration in Notion, create a telegram bot and chat and enter your values into environment [variables](https://github.com/yaroslav-klimuk/telegram-notion-bot/blob/39d2abacfb3adaded5cd0db7d2c5edd33b32adff/.env). <br>
 
 The project was written for the most part for fun and may contain errors. Anyway PR are welcome 🙂
