@@ -1,6 +1,6 @@
 My girlfriend and I were arguing about where to keep a wishlist with gift ideas for each other. I suggested notion because I really like it, but my girlfriend wanted to do it in a telegram chat. One day I thought "why choose?" and wrote this bot + [webapp](https://github.com/yaroslav-klimuk/wishlist-telegram-webapp). <br>
 This bot accepts gift object on POST request from webapp then formats data and sends to chat + notion database. <br>
-The bot also has the `/update` command to synchronize last changes from notion db to chat. <br>
+The bot also has the `/update` command to synchronize last changes from notion db to chat. (You need set up webhook to telegram API with `/webhook` endpoint). <br>
 
 Notion database must have fields of the following types:
 * Product name: Title
