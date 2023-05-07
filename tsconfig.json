@@ -1,0 +1,17 @@
+{
+  "include": ["src"],
+  "compilerOptions": {
+    "target": "esnext",
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "lib": ["esnext"],
+    "outDir": "public",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "removeComments": true,
+  },
+  "ts-node": {
+    "esm": true
+  }
+}
