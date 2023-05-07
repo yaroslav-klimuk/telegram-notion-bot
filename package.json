@@ -7,7 +7,7 @@
     "scripts": {
         "start": "ts-node src/index.ts",
         "build": "yarn clean && npx tsc",
-        "clean": "rimraf public"
+        "clean": "rimraf build"
     },
     "dependencies": {
         "@notionhq/client": "^2.2.4",
