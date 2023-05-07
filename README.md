@@ -3,15 +3,16 @@ This bot accepts gift object on POST request from webapp then formats data and s
 The bot also has the `/update` command to synchronize last changes from notion db to chat. <br>
 
 Notion database must have fields of the following types:
-* Name: Title
+* Product name: Title
 * Link: URL
 * Image: Files & media
 * Price: Number
 * Description: Text
 * Last edited time <br>
 
-Example:
-<img width="1134" alt="Screenshot 2023-05-07 at 23 11 18" src="https://user-images.githubusercontent.com/70700647/236702742-4f479b20-dddf-4c7e-a010-283ae618b595.png">
+Example: <br>
+<img width="1098" alt="Screenshot 2023-05-07 at 23 55 29" src="https://user-images.githubusercontent.com/70700647/236704395-728cf051-182e-4e22-af12-966257b0ac74.png">
+
 
 The bot only supports two specific users. If desired, you can easily add support for more users. <br>
 Each user must have their own database. In this example, the databases of both users are in the same account and notion integration. You can update the project for sync databases from different accounts. <br>
