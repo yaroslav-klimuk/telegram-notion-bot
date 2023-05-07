@@ -26,7 +26,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.useWebhook = exports.sendToNotion = exports.sendTelegramMessage = void 0;
+exports.sendTelegramMessage = void 0;
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const dotenv = __importStar(require("dotenv"));
@@ -81,8 +81,6 @@ const fetchNotionDB = async (database_id) => {
                 ],
             },
         });
-        console.log(lastEditedTime);
-        console.log(response);
         if (response.results.length > 0) {
             await sendNotionUpdates(response);
             lastEditedTime = response.results[0].last_edited_time;
@@ -104,7 +102,7 @@ const sendToNotion = async (message, username) => {
                 database_id: notionDBIdByUsername[username],
             },
             properties: {
-                Name: {
+                'Product name': {
                     title: [
                         {
                             text: {
@@ -144,13 +142,13 @@ const sendToNotion = async (message, username) => {
                 },
             },
         });
+        console.log(newPage);
         lastEditedTime = newPage.last_edited_time;
     }
     catch (error) {
         console.log(error);
     }
 };
-exports.sendToNotion = sendToNotion;
 const useWebhook = async (message) => {
     if (message.from?.username !== process.env.USERNAME1 &&
         message.from?.username !== process.env.USERNAME2) {
@@ -162,7 +160,6 @@ const useWebhook = async (message) => {
         await fetchNotionDB(`${process.env.NOTION_DB2_ID}`);
     }
 };
-exports.useWebhook = useWebhook;
 app.get("/", (req, res) => {
     res.send("Express");
 });
@@ -172,7 +169,7 @@ app.post("/new", async (req, res) => {
     console.log(req.body);
     try {
         await (0, exports.sendTelegramMessage)(message);
-        await (0, exports.sendToNotion)(data, username);
+        await sendToNotion(data, username);
         return res.status(200).json(message);
     }
     catch (error) {
@@ -186,7 +183,7 @@ app.post("/webhook", async (req, res) => {
     try {
         if (body?.message) {
             console.log(req.body);
-            await (0, exports.useWebhook)(body.message);
+            await useWebhook(body.message);
         }
     }
     catch (error) {

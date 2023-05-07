@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const formatNotionUpdates = (dataBaseResponse) => {
     return dataBaseResponse.results.map((page) => {
-        const { Name, Price, Link, Description, Image } = page.properties;
+        const { ['Product name']: ProductName, Price, Link, Description, Image } = page.properties;
         const imageObj = Image.files.length ? Image.files[0] : null;
         let imageUrl = null;
         if (imageObj) {
@@ -10,7 +10,7 @@ const formatNotionUpdates = (dataBaseResponse) => {
                 imageObj.type === "file" ? imageObj.file.url : imageObj.external.url;
         }
         const giftItem = {
-            name: Name.title[0].plain_text,
+            name: ProductName.title[0].plain_text,
             ...(Price.number && { price: Price.number }),
             ...(Link.url && { link: Link.url }),
             ...(Description.rich_text.length && {

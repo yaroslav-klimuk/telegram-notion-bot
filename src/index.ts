@@ -91,7 +91,7 @@ const notionDBIdByUsername = {
 
 type Username = keyof typeof notionDBIdByUsername;
 
-export const sendToNotion = async (message: Message, username: Username) => {
+const sendToNotion = async (message: Message, username: Username) => {
   try {
     const newPage = await notion.pages.create({
       parent: {
@@ -147,7 +147,7 @@ export const sendToNotion = async (message: Message, username: Username) => {
   }
 };
 
-export const useWebhook = async (message: TelegramBot.Message) => {
+const useWebhook = async (message: TelegramBot.Message) => {
   if (
     message.from?.username !== process.env.USERNAME1 &&
     message.from?.username !== process.env.USERNAME2
