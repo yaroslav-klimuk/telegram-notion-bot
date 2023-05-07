@@ -73,8 +73,7 @@ const fetchNotionDB = async (database_id: string) => {
         ],
       },
     });
-    console.log(lastEditedTime);
-    console.log(response);
+
     if (response.results.length > 0) {
       await sendNotionUpdates(response);
       // @ts-ignore
@@ -100,7 +99,7 @@ export const sendToNotion = async (message: Message, username: Username) => {
         database_id: notionDBIdByUsername[username],
       },
       properties: {
-        Name: {
+        'Product name': {
           title: [
             {
               text: {
@@ -140,6 +139,7 @@ export const sendToNotion = async (message: Message, username: Username) => {
         },
       },
     });
+    console.log(newPage)
     // @ts-ignore
     lastEditedTime = newPage.last_edited_time;
   } catch (error) {

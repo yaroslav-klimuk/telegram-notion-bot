@@ -4,7 +4,7 @@ import { IGift } from "./formatMessage.js";
 const formatNotionUpdates = (dataBaseResponse: QueryDatabaseResponse): IGift[] => {
   return dataBaseResponse.results.map((page) => {
     // @ts-ignore
-    const { Name, Price, Link, Description, Image } = page.properties;
+    const { ['Product name']: ProductName, Price, Link, Description, Image } = page.properties;
     const imageObj = Image.files.length ? Image.files[0] : null;
     let imageUrl = null;
 
@@ -14,7 +14,7 @@ const formatNotionUpdates = (dataBaseResponse: QueryDatabaseResponse): IGift[] =
     }
 
     const giftItem: IGift = {
-      name: Name.title[0].plain_text,
+      name: ProductName.title[0].plain_text,
       ...(Price.number && { price: Price.number }),
       ...(Link.url && { link: Link.url }),
       ...(Description.rich_text.length && {
