@@ -15,6 +15,6 @@ Example:
 
 The bot only supports two specific users. If desired, you can easily add support for more users. <br>
 
-To run the bot, you need to set up integration in Notion, create a telegram bot and chat and enter your values into environment variables. <br>
+To run the bot, you need to set up integration in Notion, create a telegram bot and chat and enter your values into environment [variables](https://github.com/yaroslav-klimuk/telegram-notion-bot/blob/39d2abacfb3adaded5cd0db7d2c5edd33b32adff/.env). <br>
 
 The project was written for the most part for fun and may contain errors. Anyway PR are welcome 🙂
